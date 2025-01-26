@@ -1,19 +1,48 @@
-# Data-Analysis-with-DBMS-and-SQLAlchemy-
 
-This repository contains the submission for COMP306 Database Management Systems,by Sarp Çağan Kelleci.
+# Data Analysis with MySQL and Python
 
-## Files
+This project demonstrates how to connect Python with MySQL, perform database operations, and visualize data using Python libraries such as Pandas, Matplotlib, and Seaborn. It is designed to help you manage and analyze data stored in a MySQL database. In this project **SQLAlchemy** is also used for a more flexible and powerful library for managing database connections and running SQL queries in a more abstracted manner.
 
-- `DataAnalysis.ipynb`: This Jupyter notebook contains the Python code for database management, data analysis, and machine learning tasks. It includes connections to a MySQL database using SQLAlchemy, data manipulation, exploratory data analysis (EDA), and machine learning model development.
-- `world-export.sql`: This SQL file includes the necessary database queries used to extract and manipulate data for analysis and machine learning tasks.
 
-## Overview
+## Example Code
 
-This homework focuses on integrating database management, data analysis, and machine learning using Python and SQLAlchemy. The tasks include:
+### Establishing the Database Connection (Using SQLAlchemy):
 
-- **MySQL Database Connection with SQLAlchemy**: Establishing a connection to a MySQL database using SQLAlchemy, a popular Object Relational Mapper (ORM) library for Python.
-- **Data Extraction and Manipulation**: Extracting data from the database and performing data cleaning and preprocessing using `pandas`.
-- **Exploratory Data Analysis (EDA)**: Conducting exploratory data analysis (EDA) to visualize key trends and insights using `matplotlib` and `seaborn`.
-- **Machine Learning**: Applying machine learning techniques (model training, evaluation, and prediction) to analyze data, leveraging Python’s `scikit-learn` library.
-- **Visualization**: Visualizing results and insights from both the data analysis and machine learning models.
+```python
+from sqlalchemy import create_engine
+
+# Replace with your own credentials
+engine = create_engine('mysql+mysqlconnector://root:password@localhost:3306/database_name')
+
+# Connect to the database
+connection = engine.connect()
+print(connection)
+```
+
+### Executing SQL Queries:
+
+```python
+# Using the SQLAlchemy engine to execute a query
+result = connection.execute("SELECT * FROM your_table")
+for row in result:
+    print(row)
+```
+
+### Data Visualization Example:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Example DataFrame creation from SQL query
+df = pd.read_sql("SELECT * FROM your_table", connection)
+
+# Visualization
+plt.figure(figsize=(10,6))
+sns.histplot(df['column_name'])
+plt.show()
+```
+
+
 
