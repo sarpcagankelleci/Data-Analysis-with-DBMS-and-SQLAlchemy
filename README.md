@@ -1,5 +1,5 @@
 
-# Data Analysis with MySQL and Python
+# Data-Analysis-with-DBMS-and-SQLAlchemy
 
 This project demonstrates how to connect Python with MySQL, perform database operations, and visualize data using Python libraries such as Pandas, Matplotlib, and Seaborn. It is designed to help you manage and analyze data stored in a MySQL database. In this project **SQLAlchemy** is also used for a more flexible and powerful library for managing database connections and running SQL queries in a more abstracted manner.
 
